@@ -7,6 +7,11 @@ restaurantes = [{'nome': 'Monster Burguer', 'categoria': 'Hamburguer', 'ativo': 
 
 
 def voltar_ao_menu_principal():
+    ''' Solicita uma tecla para voltar ao menu principal 
+    
+    Outputs:
+    - Retorna ao menu principal
+    '''
     print()
     input('Digite uma tecla para voltar para o menu principal!\n')
     main()  
@@ -20,9 +25,18 @@ def exibe_subtitulo(titulo):
     print()
 
 def exibir_nome_empresa():
-    print('Sabor Express\n')
+    ''' Exibe o nome estilizado do programa na tela '''
+    print("""
+░██████╗░█████╗░██████╗░░█████╗░██████╗░  ███████╗██╗░░██╗██████╗░██████╗░███████╗░██████╗░██████╗
+██╔════╝██╔══██╗██╔══██╗██╔══██╗██╔══██╗  ██╔════╝╚██╗██╔╝██╔══██╗██╔══██╗██╔════╝██╔════╝██╔════╝
+╚█████╗░███████║██████╦╝██║░░██║██████╔╝  █████╗░░░╚███╔╝░██████╔╝██████╔╝█████╗░░╚█████╗░╚█████╗░
+░╚═══██╗██╔══██║██╔══██╗██║░░██║██╔══██╗  ██╔══╝░░░██╔██╗░██╔═══╝░██╔══██╗██╔══╝░░░╚═══██╗░╚═══██╗
+██████╔╝██║░░██║██████╦╝╚█████╔╝██║░░██║  ███████╗██╔╝╚██╗██║░░░░░██║░░██║███████╗██████╔╝██████╔╝
+╚═════╝░╚═╝░░╚═╝╚═════╝░░╚════╝░╚═╝░░╚═╝  ╚══════╝╚═╝░░╚═╝╚═╝░░░░░╚═╝░░╚═╝╚══════╝╚═════╝░╚═════╝░  
+""")
 
 def exibir_opcoes():
+    ''' Exibe as opções disponíveis no menu principal '''
     print('1. Cadastrar restaurante')
     print('2. Listar restaurante')
     print('3. Alterar status do restaurante')
@@ -30,11 +44,21 @@ def exibir_opcoes():
     print()
 
 def opcao_invalida():
+    ''' Exibe mensagem de opção inválida e retorna ao menu principal 
+    
+    Outputs:
+    - Retorna ao menu principal
+    '''
     print('Opção inválida!')
     voltar_ao_menu_principal()
-    
+
 
 def escolher_opcoes():
+    ''' Solicita e executa a opção escolhida pelo usuário 
+    
+    Outputs:
+    - Executa a opção escolhida pelo usuário
+    '''
     try:
         opcao_escolhida = int(input('\nInforme a opção desejada: '))
         if opcao_escolhida == 1:
@@ -55,6 +79,16 @@ def finalizar_app():
 
 
 def cadastrar_restaurante():
+    ''' Essa função é responsável por cadastrar um novo restaurante 
+    
+    Inputs:
+    - Nome do restaurante
+    - Categoria
+
+    Outputs:
+    - Adiciona um novo restaurante a lista de restaurantes
+
+    '''
     exibe_subtitulo('Cadastro de restaurantes!')
     nome_do_restaurante = input('Insira o nome do novo restaurante: ')
     categoria = input(f'Insira a categoria do restaurante {nome_do_restaurante}: ')
@@ -64,6 +98,11 @@ def cadastrar_restaurante():
     voltar_ao_menu_principal()
     
 def listar_restaurantes():
+    ''' Lista os restaurantes presentes na lista 
+    
+    Outputs:
+    - Exibe a lista de restaurantes na tela
+    '''
     exibe_subtitulo('Listando os restaurantes...')
 
     for restaurante in restaurantes:
@@ -74,6 +113,11 @@ def listar_restaurantes():
     voltar_ao_menu_principal()
 
 def alterar_estado_restaurante():
+    ''' Altera o estado ativo/desativado de um restaurante 
+    
+    Outputs:
+    - Exibe mensagem indicando o sucesso da operação
+    '''
     exibe_subtitulo('Alterar estado do restaurante.')
     nome_restaurante = input('Digite o nome do restaurante: ')
     restaurante_encontrado = False
